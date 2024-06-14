@@ -1,17 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Boolean Data Analytics Course
-
-Web Scraping and Web Interaction with Selenium: 
- in this script we write some code that looks at the pagination 
- of the website; we create a function that, given a page, 
- navigates to that page and scrapes the data contained in a table
- and then appends it to a previously initialised DataFrame 
-"""
-
-
-### GETTING STARTED
-
 # Download the latest stable release of the ChromeDriver
 # https://sites.google.com/chromium.org/driver/
 
