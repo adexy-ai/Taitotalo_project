@@ -1,13 +1,13 @@
 from flask import Flask, render_template
 import datetime as dt
 
+
 app = Flask(__name__)
 
 @app.route("/")
 def home_page():
     date_ = dt.datetime.now().year
-    distance = 'd25_gui/mile_km.py'
-    return render_template('index.html', year=date_, Converter=distance)
+    return render_template('index.html', year=date_)
 
 
 @app.route("/about")
@@ -23,6 +23,8 @@ def elements():
 @app.route("/contacts")
 def generic():
     return render_template('html5up-identity/templates/contacts.html')
+
+
 
 
 
