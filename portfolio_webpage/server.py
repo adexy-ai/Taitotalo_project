@@ -17,12 +17,12 @@ def about():
 
 @app.route("/projects")
 def elements():
-    return render_template('projects.html')
+    return render_template('html5up-identity/templates/projects.html')
 
 
 @app.route("/contacts")
 def generic():
-    return render_template('contacts.html')
+    return render_template('html5up-identity/templates/contacts.html')
 
 
 
