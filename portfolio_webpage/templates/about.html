@@ -16,17 +16,26 @@
 		<noscript><link rel="stylesheet" href="static/assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-loading">
+		<!-- Header -->
+		<header id="header">
+			<a href="projects.html" class="logo">About Me</a>
+		</header>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+	<!-- Nav -->
+		<nav id="nav">
+			<ul class="links">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="projects">Projects</a></li>
+				<li><a href="about">Contact</a></li>
+			</ul>
+			<ul class="icons">
+				<li><a href="https://x.com/adnis069" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="https://www.facebook.com/anuoluwapo.adeniran" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+				<li><a href="https://www.instagram.com/adeniran.aderiye/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="https://github.com/adexy-ai" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+			</ul>
+		</nav>
 
-				<!-- Main -->
-					<section id="main">
-						<header>
-							<span class="avatar"><img src="static/images/ade.png" alt="" /></span>
-							<h1>Adeniran Aderiye</h1>
-							<p>Python Developer</p>
-						</header>
 						<!--
 						<hr />
 						<h2>Extra Stuff!</h2>
@@ -64,33 +73,4 @@
 						</form>
 						<hr />
 						-->
-						<footer>
-							<ul class="icons">
-								<li><a href="https://x.com/adnis069" class="fa-twitter">Twitter</a></li>
-								<li><a href="https://www.instagram.com/adeniran.aderiye/" class="fa-instagram">Instagram</a></li>
-								<li><a href="https://www.facebook.com/anuoluwapo.adeniran/" class="fa-facebook">Facebook</a></li>
-							</ul>
-						</footer>
-					</section>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="copyright">
-							<li>&copy; Adeniran Aderiye 2024</li>
-							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<!--[if lte IE 8]><script src="static/assets/js/respond.min.js"></script><![endif]-->
-			<script>
-				if ('addEventListener' in window) {
-					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
-					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-				}
-			</script>
-
-	</body>
-</html>
+				{% include "footer.html" %}

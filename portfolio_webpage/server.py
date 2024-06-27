@@ -10,19 +10,19 @@ def home_page():
     return render_template('index.html', year=date_)
 
 
-@app.route("/about")
-def about():
-    return render_template('html5up-identity/templates/index.html')
+# @app.route("/about")
+# def about():
+#     return render_template('about.html')
 
 
 @app.route("/projects")
 def elements():
-    return render_template('html5up-identity/templates/projects.html')
+    return render_template('projects.html')
 
 
 @app.route("/contacts")
 def generic():
-    return render_template('html5up-identity/templates/contacts.html')
+    return render_template('contacts.html')
 
 
 
