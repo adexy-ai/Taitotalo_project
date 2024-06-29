@@ -36,24 +36,25 @@ def home_page():
     date_ = dt.datetime.now().year
     return render_template('index.html', year=date_)
 
-
-# @app.route("/about")
-# def about():
-#     return render_template('about.html')
-
-
 @app.route("/projects")
 def elements():
     return render_template('projects.html')
-
 
 @app.route("/contacts")
 def generic():
     return render_template('contacts.html')
 
+@app.route("/form_entry", methods=['POST', 'GET'])
+def recieve_data():
+    name = request.form.get['name']
+    email = request.form.get['email']
+    message = request.form.get['message']
+    return f'<h2>Name: {name}, Email: {email}, Message: {message}<h2/>'
+
+
 
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
     
