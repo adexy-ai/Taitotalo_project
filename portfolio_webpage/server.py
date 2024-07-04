@@ -28,7 +28,7 @@ model.fit(X_train, y_train)
 @app.route('/predict', methods=['POST'])
 def predict():
     population = int(request.form['population'])
-    prediction = model.predict(np.array([[population]]))[0]
+    prediction = round(model.predict(np.array([[population]]))[0])
     return jsonify({'predicted_diabetes_cases': prediction})
 
 @app.route("/")
