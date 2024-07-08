@@ -4,17 +4,66 @@ import pandas as pd
 import datetime as dt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-import webview
+from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, URL, Email, Length
-import csv
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import Integer, String, Float
+
 
 
 app = Flask(__name__) 
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 Bootstrap5(app)
+
+##CREATE DATABASE
+class Base(DeclarativeBase):
+    pass
+
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///contacts.db"
+
+# Create the extension
+db = SQLAlchemy(model_class=Base)
+# Initialise the app with the extension
+db.init_app(app)
+
+    
+# create the table for the contact data server
+class Contacts(db.Model):
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    name: Mapped[str] = mapped_column(String(250), unique=True, nullable=False)
+    email: Mapped[str] = mapped_column(String(250), nullable=False)
+    message: Mapped[float] = mapped_column(String(1000), nullable=False)
+
+
+# create table schema in the database
+def create_schema():
+    with app.app_context():
+        db.create_all()
+
+# call the function once and then comment it out once the db is created
+create_schema()
+
+
+
+@app.route("/contacts", methods=['POST', 'GET'])
+def recieve_data():
+    if request.method == "POST":
+        contact_request = Contacts(
+            name= request.form["name"],
+            email= request.form["email"],
+            message= request.form["message"]
+        )
+        db.session.add(contact_request)
+        db.session.commit()
+    
+        #NOTE: You can use the redirect method from flask to redirect to another route 
+        # e.g. in this case to the home page after the form has been submitted.
+        return redirect(url_for('home_page'))
+      
+    return render_template("contacts.html")
 
 # Creating the form function to get the import from the form page of the website
 
@@ -55,28 +104,6 @@ def home_page():
 @app.route("/projects")
 def elements():
     return render_template('projects.html')
-
-@app.route("/contacts", methods=['POST', 'GET'])
-def generic():
-    form = Message_Ade()
-    if form.validate_on_submit():
-        with open("messages.csv", mode="a", encoding='utf-8') as csv_file:
-            csv_file.write(f"\n{form.name.data},"
-                           f"{form.email.data},)
-                           f"{form.message.data},") 
-    return render_template('contacts.html', form=form)
-
-@app.route("/form_entry", methods=['POST', 'GET'])
-def recieve_data():
-    form = Message_Ade()
-    if form.validate_on_submit():
-        with open("messages.csv", mode="a", encoding='utf-8') as csv_file:
-            csv_file.write(f"\n{form.name.data},"
-                           f"{form.email.data},"
-                           f"{form.message.data},")  
-        return render_template('footer.html', form=form)
-
-
 
 
 
