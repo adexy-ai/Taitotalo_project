@@ -11,6 +11,7 @@ from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, URL, Email, Length
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Float
+from d25_gui import mile_km
 
 
 
@@ -104,6 +105,13 @@ def home_page():
 @app.route("/projects")
 def elements():
     return render_template('projects.html')
+
+
+# @app.route('/mile')
+# def web():
+#     M=mile_km     #instantiated my class
+#     return render_template()
+        
 
 
 
