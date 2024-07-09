@@ -11,7 +11,6 @@ from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, URL, Email, Length
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Float
-from d25_gui import mile_km
 
 
 
@@ -73,6 +72,16 @@ class Message_Ade(FlaskForm):
     email = StringField('EMAIL', validators=[DataRequired(), Email()])
     message = StringField('MESSAGE', validators=[DataRequired(), Length(min=2, max=150)])
     submit = SubmitField('SEND MESSAGE')
+    
+# @app.route("/read", methods=["GET", "POST"])
+# def edit():
+#     if request.method == "POST":
+#         #UPDATE RECORD
+#         record = Contacts(
+#         message_id = request.args.get("id"),
+#         email = request.args.get('email'),
+#         new_message = request.args.get("message"))
+#         return render_template("read_message.html", book= record)
 
 
 # Sample data for training the model
@@ -109,8 +118,8 @@ def elements():
 
 # @app.route('/mile')
 # def web():
-#     M=mile_km     #instantiated my class
-#     return render_template()
+#    from d25_gui import mile_km
+ 
         
 
 
@@ -118,4 +127,5 @@ def elements():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
+  
     
