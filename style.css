@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: darkgrey;
+}
+
+.main_container {
+    border: 2px solid lightcyan;
+    width: 500px;
+}
+
+#mile {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#mile {
+    background-color: aliceblue;
+    width: 100%;
+    height: 100px;
+}
+
+input {
+    width: 214px;
+    height: 30px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap; 
+}
+.container {
+    /*background-color: antiquewhite; */
+    height: 100px;
+    width: 100%;
+    margin: 40px;
+} 
+
+.answer_line {
+    width: 30%;
+    height: 200px;
+    border: 0px solid gray;
+    font-size:x-large;
+}
+
+#mile_text {
+    font-size: x-large;
+}
+
+button {
+    height: 30px;
+    width: 150px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+}
+
+button:hover {
+    background-color: aliceblue;
+}
+
+#mile_text {
+    margin: 40px;
+}
+
+#input {
+    margin: 40px;
+}
